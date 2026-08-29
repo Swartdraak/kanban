@@ -1,16 +1,8 @@
+/* Kanban Task Board — styles (part 1 of 2) */
 /* --------------------------------------------------------------------------
-   Kanban Task Board — styles
    Mobile-first. Design tokens at the top; components below.
-
-   Breakpoints:
-   - < 640px  : single stacked column, horizontal-scroll not needed
-   - 640–1024px : 2 columns
-   - >= 1024px  : 4 columns side by side
+   Breakpoints: <640 single column · 640–1024 two columns · >=1024 four.
    -------------------------------------------------------------------------- */
-
-/* ------------------------------------------------------------------
-   Design tokens
-   ------------------------------------------------------------------ */
 :root {
   --color-bg: #0f1117;
   --color-surface: #171a23;
@@ -19,29 +11,22 @@
   --color-text: #e6e8ee;
   --color-text-muted: #9097a8;
   --color-text-faint: #5e6577;
-
   --color-accent: #4f8cff;
   --color-accent-strong: #2f6feb;
   --color-danger: #ff5470;
   --color-success: #2ecc71;
-
-  /* Priority palette */
   --priority-low: #5a9f6e;
   --priority-medium: #e0a83a;
   --priority-high: #e0663a;
   --priority-urgent: #d64560;
-
-  /* Radius + shadow */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35);
   --shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.55);
-
   --font-sans:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -50,9 +35,6 @@
   --space-6: 32px;
 }
 
-/* ------------------------------------------------------------------
-   Reset + base
-   ------------------------------------------------------------------ */
 *,
 *::before,
 *::after {
@@ -92,7 +74,6 @@ p {
   margin: 0;
 }
 
-/* Visually hidden but still readable by screen readers */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -105,16 +86,11 @@ p {
   border: 0;
 }
 
-/* ------------------------------------------------------------------
-   Layout helpers
-   ------------------------------------------------------------------ */
 #app {
   display: contents; /* let the board's root-level children lay out directly */
 }
 
-/* ------------------------------------------------------------------
-   Board header
-   ------------------------------------------------------------------ */
+/* Board header */
 .board__header {
   display: flex;
   flex-direction: column;
@@ -143,9 +119,7 @@ p {
   align-self: flex-start;
 }
 
-/* ------------------------------------------------------------------
-   Filters bar
-   ------------------------------------------------------------------ */
+/* Filters bar */
 .filters-bar {
   display: flex;
   flex-wrap: wrap;
@@ -189,9 +163,7 @@ p {
   margin-left: auto;
 }
 
-/* ------------------------------------------------------------------
-   Board + columns
-   ------------------------------------------------------------------ */
+/* Board + columns */
 .board__columns {
   display: grid;
   grid-template-columns: 1fr;
@@ -296,9 +268,7 @@ p {
   border-radius: var(--radius-md);
 }
 
-/* ------------------------------------------------------------------
-   Task card
-   ------------------------------------------------------------------ */
+/* Task card */
 .task-card {
   background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
@@ -419,7 +389,7 @@ p {
   color: var(--color-success);
   font-weight: 600;
 }
-
+/* Kanban Task Board — styles (part 2 of 2) */
 .task-card__controls {
   display: flex;
   flex-wrap: wrap;
@@ -478,9 +448,7 @@ p {
   color: var(--color-success);
 }
 
-/* ------------------------------------------------------------------
-   Priority badge
-   ------------------------------------------------------------------ */
+/* Priority badge */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -513,9 +481,7 @@ p {
   border-color: rgba(214, 69, 96, 0.4);
 }
 
-/* ------------------------------------------------------------------
-   Buttons
-   ------------------------------------------------------------------ */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -568,9 +534,7 @@ p {
   color: var(--color-text);
 }
 
-/* ------------------------------------------------------------------
-   Task modal
-   ------------------------------------------------------------------ */
+/* Task modal */
 .task-modal {
   /* Native <dialog> backdrop styles */
   background: transparent;
@@ -585,10 +549,8 @@ p {
   backdrop-filter: blur(2px);
 }
 
-/*
- * The dialog element itself holds the content; we restyle the inner wrapper
- * because some browsers give <dialog> a default 215px width.
- */
+/* The dialog element itself holds the content; we restyle the inner wrapper
+   because some browsers give <dialog> a default 215px width. */
 .task-modal {
   width: min(540px, calc(100vw - 32px));
   border-radius: var(--radius-lg);
@@ -656,9 +618,7 @@ p {
   margin-top: var(--space-2);
 }
 
-/* ------------------------------------------------------------------
-   Responsive polish
-   ------------------------------------------------------------------ */
+/* Responsive polish */
 @media (max-width: 480px) {
   .board__header {
     padding: var(--space-4) var(--space-3) var(--space-3);
